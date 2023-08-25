@@ -2,8 +2,9 @@ package pageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.SeleniumWrappers;
 
-public class LoginPage {
+public class LoginPage extends SeleniumWrappers{
 
 	public WebDriver driver;
 	
@@ -22,11 +23,15 @@ public class LoginPage {
 	
 	//metode
 	public void loginInApp(String user, String pass) {
-		driver.findElement(usernameField).clear();//sterge din input field
+		/*driver.findElement(usernameField).clear();//sterge din input field
 		driver.findElement(usernameField).sendKeys(user);
 		driver.findElement(passwordField).clear();
 		driver.findElement(passwordField).sendKeys(pass);
-		driver.findElement(submit_button).click();
+		driver.findElement(submit_button).click();*/
+
+		sendKeys(usernameField,user);
+		sendKeys(passwordField,pass);
+		click(submit_button);
 	}
 	
 	public void closePopUp() {

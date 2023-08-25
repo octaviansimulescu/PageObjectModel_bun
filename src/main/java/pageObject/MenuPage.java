@@ -23,10 +23,14 @@ public class MenuPage {
 	public By shopLink =  By.linkText("BOOKS");
 	public By blogLink =  By.linkText("BLOG");
 	public By aboutLink =  By.linkText("ABOUT");
+
+	public By eventsLink = By.linkText("EVENTS");
 	public By blogSubMenuMasonry = By.xpath("//a[contains(text(), 'Masonry')]");
 	public By blogSubMenuMasonrysubMenu = By.xpath("//a[contains(text(), 'Masonry 2')]");
 	public By iconSearch = By.cssSelector("button[title='Open search']");
 	public By searchField = By.cssSelector("input[class='search_field']");
+
+
 
 	
 	
