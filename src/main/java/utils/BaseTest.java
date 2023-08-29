@@ -12,7 +12,7 @@ public class BaseTest {
 	public static WebDriver driver;
 	public BasePage app;
 	
-	@BeforeClass
+	@BeforeClass(alwaysRun = true)
 	public void setup() {
 		//System.setProperty("webdriver.chrome.driver", "path catre/chromedriver.exe")
 		driver = new ChromeDriver();

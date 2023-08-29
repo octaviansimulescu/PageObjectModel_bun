@@ -2,6 +2,7 @@ package tests;
 
 import static org.testng.Assert.assertTrue;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import pageObject.LoginPage;
@@ -10,14 +11,14 @@ import utils.BaseTest;
 
 public class LoginTest extends BaseTest{
 	
-	
+	@Parameters({"user","pass"})
 	@Test(description = "positiveScenario")
-	public void validLoginTest() {
+	public void validLoginTest(String username, String password) {
 		
 		MenuPage menu =  new MenuPage(driver);
 		menu.navigateTo(menu.loginLink);
 		LoginPage login = new LoginPage(driver);
-		login.loginInApp("TestUser", "12345@67890");
+		login.loginInApp(username, password);
 		
 		assertTrue(login.loginMsgIsDisplayed(login.loginSuccessMsg));
 		

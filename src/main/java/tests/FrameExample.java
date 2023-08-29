@@ -7,7 +7,7 @@ import utils.BaseTest;
 
 public class FrameExample extends BaseTest {
 
-    @Test
+    @Test(groups = "ProductFunctionality")
     public void zoomMapTest() throws InterruptedException{
         MenuPage menu = new MenuPage(driver);
         menu.navigateTo(menu.contactsLink);
