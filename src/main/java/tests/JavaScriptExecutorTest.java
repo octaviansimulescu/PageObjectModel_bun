@@ -32,7 +32,7 @@ public class JavaScriptExecutorTest extends BaseTest {
     }
 
     @Test
-    public void example2(){
+    public void example2() throws InterruptedException {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
   /*      //alternativa pentru click
         jse.executeScript("arguments[0].click",app.returnWebElement(app.menu.iconSearch));
@@ -48,6 +48,9 @@ public class JavaScriptExecutorTest extends BaseTest {
                 app.returnWebElement(app.menu.searchField));
 
        */
+
+
+
         jse.executeScript("document.getElementsByClassName('icon-search')[0].click()");//document = dom
 
         jse.executeScript("document.getElementsByClassName('search_field')[0].value='cooking'");
@@ -57,6 +60,31 @@ public class JavaScriptExecutorTest extends BaseTest {
         //alternativa pentru getTitle
         System.out.println("title: " +jse.executeScript("return document.title"));
         // trebuie sa pune return ca jse sa ne returneze ceva
+
+
+
+        //alternativa element.getText
+        String bookTitle = jse.executeScript("return document.getElementsByClassName('post_title')[0].childNodes[0].innerText").toString();
+        System.out.println("Book title is :" + bookTitle);
+
+        jse.executeScript("document.getElementsByClassName('menu_user_login')[0].childNodes[0].click()");
+        //document.getElementsByClassName('menu_user_login')[0].childNodes[0].click()
+
+        //alternativa is displayed
+        String isDisplayed = jse.executeScript("return document.getElementsByName('log')[0].checkVisibility()").toString();
+        System.out.println("isDisplayed :" + isDisplayed);
+        //document.getElementsByName('log')[0].checkVisibility()
+
+        //alternativa is enabled
+        String isDisabled = jse.executeScript("return document.getElementsByName('pwd')[0].disabled").toString();
+        System.out.println("isDisplayed :" + isDisabled);
+
+        //alternativa is selected
+        String isSelected = jse.executeScript("return document.getElementsByName('rememberme')[0].checked").toString();
+        System.out.println("isSelected :" + isSelected);
+
+        Thread.sleep(4000);
+
 
         jse.executeScript("window.SchimbTitlul = function(){document.title = 'Alt titlu'"+
                 "window.SchimbTitlul.call()");
